@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+ 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <title>All Employees</title>
+    </head>
+    <body>
+        <div class="container">
+
+        <h1>This is the employee list</h1>
+
+        <a class="btn btn-primary" th:href="@{employees/addnew}">Create New Employee Record</a>
+
+        <table class= "table table-striped">
+            <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Salary</th>
+            <th>Birthday</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>Action</th>
+            
+            </thead>
+            <tbody>
+            <tr data-th-each="emp : ${employees}">
+                <td data-th-text= "${emp.firstName}"> </td>
+                <td data-th-text= "${emp.lastName}"> </td>
+                <td data-th-text= "${emp.email}"> </td>
+                <td data-th-text= "${emp.phoneNo}"> </td>
+                <td data-th-text= "${emp.salary}"> </td>
+                <td data-th-text= "${emp.birthday}"> </td>
+                <td data-th-text= "${emp.address}"> </td>
+                <td data-th-text= "${emp.postalCode}"> </td>
+
+                <td> 
+                    <a class="btn btn-primary" th:href="@{#}">Update</a>
+                    <a class="btn btn-primary" th:href="@{employees/deleteEmployee/{email}(email = ${emp.email})}">Delete</a>
+                </td> <!-- The (email = ${emp.email) is to assign the variable email with the value ${emp.email) -->
+
+
+            </tr>
+            
+            </tbody>
+
+        </table>
+
+    </div>
+
+    </body>
+</html>
