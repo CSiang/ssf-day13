@@ -39,7 +39,7 @@
                 <td data-th-text= "${emp.postalCode}"> </td>
 
                 <td> 
-                    <a class="btn btn-primary" th:href="@{#}">Update</a>
+                    <a class="btn btn-primary" th:href="@{ employees/updateEmployee/{email}(email = ${emp.email}) }">Update</a>
                     <a class="btn btn-primary" th:href="@{employees/deleteEmployee/{email}(email = ${emp.email})}">Delete</a>
                 </td> <!-- The (email = ${emp.email) is to assign the variable email with the value ${emp.email) -->
 
